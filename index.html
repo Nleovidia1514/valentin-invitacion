@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quieres ser mi valentin ?</title>
+    <style>
+        button {
+            padding: 1.5rem;
+            cursor: pointer;
+        }
+
+        button#yes:hover {
+            transform: scale(5);
+        }
+
+    </style>
+  </head>
+  <body style="height: 100vh; margin: 0; padding: 0">
+    <div
+    id="container"
+      style="
+        background-color: pink;
+        display: flex;
+        height: 100%;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-size: cover;
+      "
+    >
+      <h2>Do you want to be my valentine ?</h2>
+      <h1 style="color: white; transform: translateY(-1000px); transition-duration: 2s;" id="invitation">Estas invitada a una cita romantica el 14 de febrero</h1>
+      <div>
+        <button class="button" id="yes" style="background-color: green;;">YES</button>
+        <button class="button" id="no" style="background-color: red;">NO</button>
+      </div>
+      <img src="assets/pandas.gif" />
+    </div>
+  </body>
+  <script>
+    const height = document.body.scrollHeight;
+    const width = document.body.scrollWidth;
+    const noButton = document.querySelector('#no');
+    const yesButton = document.querySelector('#yes');
+    let currentScale = 1;
+    noButton.onclick = () => {
+        noButton.style.position = 'absolute';
+        noButton.style.top = `${Math.random() * height}px`;
+        noButton.style.left = `${Math.random() * width}px`;
+        currentScale += currentScale >= 2 ? 1 : .2;
+        yesButton.style.transform = `scale(${currentScale})`;
+    }
+
+    yesButton.onclick = () => {
+        const main = document.querySelector('#container');
+        const invitation = document.querySelector('#invitation');
+        noButton.style.visibility = 'hidden';
+        yes.style.visibility = 'hidden'; 
+        main.style.backgroundImage = `url(assets/fireworks.gif)`;
+        invitation.style.transform = 'translateY(0px)';
+    }
+  </script>
+</html>
